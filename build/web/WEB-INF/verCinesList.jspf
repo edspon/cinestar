@@ -1,0 +1,23 @@
+<%@page import="bean.Cine"%>
+<%@page import="java.util.List"%>
+<%@ page pageEncoding="UTF-8" %>
+<%
+    if (session.getAttribute ("lstCines") != null) {
+        List<Cine> lstCines =(List<Cine>) session.getAttribute("lstCines");
+%>
+<div class="contenido-interno">
+    <br><h1>Nuestros Cines</h1><br>
+    <% for (Cine Cine : lstCines){ %>
+    <div class="contenido-cine">
+        <img src="img/cine/<%= Cine.getIdCine() %>.1.jpg" width="227" height="170">
+        <div class="datos-cine">
+            <h4><%= Cine.getRazonSocial() %></h4><br>
+            <span><%= Cine.getDireccion() %> - <%= Cine.getDetalle() %><br><br>Teléfono: <%= Cine.getDetalle() %></span>
+        </div>
+        <br>
+             <a href="svlPelicula?id=1">
+            <img src="img/varios/ico-info2.png" width="150" height="40">
+        </a>
+    </div>
+    <% } }%>
+</div>
